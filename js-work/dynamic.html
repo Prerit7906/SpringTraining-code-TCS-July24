@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic stuff with JS</title>
+</head>
+<body>
+    <p id="result">
+
+    </p>
+    <button onclick="showTime();">Current Date</button>
+    <button id="clickButton">Click Me</button>
+    <button onclick="changeDivCSS();">Change CSS</button>
+    <div id="block">
+
+    </div>
+    <form>
+
+    </form>
+    <a href="#">Link to other Page</a>
+    <a href="#">Link to other Page</a>
+   <script>
+    
+    // alert(document.lastModified);
+
+    document.getElementById('clickButton').addEventListener("click",()=>{
+        alert("Button just clicked...");
+    });
+
+    // alert(document.body.innerHTML);
+    console.log(`Links on the page : ${document.links.length}`);
+    console.log(`Forms on the page : ${document.forms.length}`);
+    console.log(`Title of the page : ${document.title}`);
+
+    // Create a button dynamically
+    var myNewButton = document.createElement("BUTTON");
+    myNewButton.innerHTML = "Created Through JS";
+    document.body.append(myNewButton);
+
+    // Create a new Para
+    var myNewPara = document.createElement("P");
+    myNewPara.id = "newPara";
+    myNewPara.innerHTML = "We are creating elements dynamically through JS, as this para was...";
+    document.getElementById("block").appendChild(myNewPara);
+
+    function changeDivCSS(){
+        let divBlock = document.getElementById('block');
+        divBlock.style.backgroundColor = "blue";
+        divBlock.style.color = "white";
+        divBlock.style.fontSize = "30px";
+    }
+
+
+
+
+
+    var textDisplay = "<select>";
+        textDisplay += "<option>Select your REG ID:</option>";
+        for(index = 340; index <= 740; index++){
+            textDisplay += `<option>${index}</option>`;
+        }
+        textDisplay += "</select>";
+        // document.write(textDisplay);
+        document.getElementById('result').innerHTML = textDisplay;
+
+        function someFun(){
+            let values = [780, 6467, 44, 555, 67];
+
+            values[2] = 909;
+
+            values[3] = "Sandeep";
+
+            // for(let index = 0; index < values.length;index++){
+            //     console.log(values[index]);
+            // }
+
+            // Or with a for in:
+
+            // for(let value in values){
+            //     console.log(values[value]);
+            // }
+
+            let myObject = {name: 'Gargee', tcsEmployee: true, regId: 789};
+
+            // console.log(myObject);
+
+            for(let key in myObject){
+                document.write(`${key} : ${myObject[key]} <br>`);
+            }
+
+            // ["Pradeep", "Srilakshmi", "Usman", "Harshita"].forEach(alert);
+
+            // ["Pradeep", "Srilakshmi", "Usman", "Harshita"].forEach((value, index, array)=>{
+            //     alert(`${value} at location : ${index} belongs to ${array}`);
+            // });
+
+            // let names = ["Pradeep", "Srilakshmi", "Usman", "Harshita"];
+
+            // document.write(names.map(value => value.length));
+
+
+
+
+
+
+            // console.log(values);
+
+        }
+
+        someFun();
+
+        function showTime(){
+            let blockDiv = document.getElementById('block');
+
+            setInterval(()=>{
+                blockDiv.innerHTML = new Date().toLocaleTimeString();
+            }, 1000);
+        }
+
+
+
+
+
+
+
+   </script> 
+   
+   <!-- <select>
+    <option>Select your Reg ID:</option>
+    <option>340</option>
+    <option>341</option>
+    <option>342</option>
+    <option>343</option>
+    <option>344</option>
+   </select> -->
+</body>
+</html>

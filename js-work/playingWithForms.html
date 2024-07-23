@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using JS to Validate HTML Forms</title>
+</head>
+<body>
+    <form action="index.html" onsubmit=" return validateForm();">
+        <input id="userName" type="text" placeholder="Your Name"><br>
+        <input id="userId" type="text" placeholder="Your ID"><br>
+        <input id="userSkills" type="text" placeholder="Your Sills"><br>
+        <input type="submit" value="REGISTER">
+    </form>
+    <script>
+        function validateForm(){
+            let userName = document.getElementById('userName');
+            let userId = document.getElementById('userId');
+            let userSkills = document.getElementById('userSkills');
+
+            if(userName.value.length < 1){
+                alert("We don't like blank names...");
+                userName.focus();
+                return false;
+            }
+            else if(!isNaN(userName.value)){
+                alert("Please enter a valid name...");
+                userName.focus();
+                userName.value = "";
+                return false;
+            }
+            else if(userId.value.length < 1){
+                alert("Please enter your ID");
+                userId.focus();
+                return false;
+            }
+            else if(isNaN(userId.value)){
+                alert("Please enter your ID in numbers");
+                userId.focus();
+                userId.value = "";
+                return false;
+            }
+            return true;
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Functions in JS</title>
+</head>
+<body>
+   <script>
+    // function addFuncTraditional(firstNumber = 0, secondNumber = 0) {
+    //     console.log(arguments.length);
+    //     // console.log(arguments[10]);
+
+    //     return firstNumber + secondNumber;
+    // }
+
+    function restDemo(...values){
+        let total = 0;
+        for(let value of values){
+            total += value;
+        }
+        return total;
+    }
+
+    console.log(`Addition of four numbers is : ${restDemo(450, 89, 44, 32)}`);
+    console.log(`Addition of 2 numbers is : ${restDemo(450, 89)}`);
+    console.log(`Addition of 6 numbers is : ${restDemo(450, 89, 1, 888, 3, 78)}`);
+    console.log(`Addition of 3 numbers is : ${restDemo(450, 89, 9)}`);
+
+    // console.log(addFuncTraditional(560, 80, 760, 90, 88));
+
+    // let addTwoNumbers = function(firstNumber = 0, secondNumber = 0) {
+    //     console.log(firstNumber + secondNumber);
+    // }
+
+    // let addTwoNumbers = function() {
+    //     let firstNumber = parseInt(document.getElementById('firstValue').value);
+    //     let secondNumber = parseInt(document.getElementById('secondValue').value);
+    //     // document.write(`Addition : ${firstNumber + secondNumber}`);
+    //     document.getElementById('resultContainer').innerHTML = `Addition : ${firstNumber + secondNumber}`;
+    // }
+
+    // Using Arrow Functions: 
+    let addTwoNumbers = () => {
+        let firstNumber = parseInt(document.getElementById('firstValue').value);
+        let secondNumber = parseInt(document.getElementById('secondValue').value);
+        // document.write(`Addition : ${firstNumber + secondNumber}`);
+        document.getElementById('resultContainer').innerHTML = `Addition : ${firstNumber + secondNumber}`;
+    }
+
+    let add = (firstNum, secondNum) => firstNum + secondNum;
+    console.log(add(50, 90));
+
+
+    // console.log(`Addition of numbers : ${addTwoNumbers(709, 65)}`);
+
+    
+   </script> 
+   <input type="text" id="firstValue" placeholder="First Number">
+   <input type="text" id="secondValue" placeholder="Second Number">
+   <button onclick="addTwoNumbers()">ADD NUMBERS</button>
+   <div id="resultContainer" style="background-color: bisque; width: 100%; height: 100px;">
+
+   </div>
+</body>
+</html>
